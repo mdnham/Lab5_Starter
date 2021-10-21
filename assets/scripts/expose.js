@@ -3,5 +3,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  // TODO
+  var img = new Image();   // Create new img element
+  img.src = assests/images/car-horn.svg; // Set source path
 }
