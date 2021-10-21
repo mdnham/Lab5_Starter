@@ -1,3 +1,2 @@
 # Lab 5 Group Members
-Makayla Nham
-Harsheta Cavale
+Makayla Nham and Harsheta Cavale
