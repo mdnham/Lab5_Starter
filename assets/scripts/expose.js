@@ -1,14 +1,20 @@
 // expose.js
-
 window.addEventListener('DOMContentLoaded', init);
 
-function init() {
-  const hornElement = document.getElementById('horn-select'); //the drop down element
 
+function init() {
+  
+  const hornElement = document.getElementById('horn-select'); //the drop down element
+  let partyHornBoolean = false;
   hornElement.addEventListener('change', (event) => { //if the option has been changed
     //change to the corresponding image source
     let hornImg = document.querySelector('img');
     hornImg.setAttribute("src", `assets/images/${event.target.value}.svg`);
+    if (event.target.value == 'party-horn'){
+      partyHornBoolean = true;
+    }else{
+      partyHornBoolean = false; 
+    }
     //as well as audio source
     let hornAudio = document.querySelector('audio');
     hornAudio.setAttribute("src",`assets/audio/${event.target.value}.mp3`);
@@ -34,8 +40,12 @@ function init() {
   });
 
   const buttonElement = document.querySelector('button'); //the button element
+  const jsConfetti = new JSConfetti();
   var audio = document.querySelector('audio');
   buttonElement.addEventListener('click', event => {
     audio.play();
+    if (partyHornBoolean == true){
+       jsConfetti.addConfetti();
+    }
   });
 }
