@@ -34,4 +34,8 @@ function init() {
   });
 
   const buttonElement = document.querySelector('button'); //the button element
+  var audio = document.querySelector('audio');
+  buttonElement.addEventListener('click', event => {
+    audio.play();
+  });
 }
