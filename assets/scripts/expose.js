@@ -21,6 +21,7 @@ function init() {
   });
 
   const volumeElement = document.getElementById('volume'); //the slider element
+  var currVolume;
 
   volumeElement.addEventListener('input', (event) => { //if the slider has moved
     //change the icon depending on how loud
@@ -36,7 +37,8 @@ function init() {
 
     //as well as the volume for the audio
     let audioVolume = document.querySelector('audio');
-    audioVolume.setAttribute("volume", `${event.target.value / 100}`); //volume is of [0.0,1.0]
+    audioVolume.volume = event.target.value / 100; //volume is of [0.0,1.0]
+    currVolume = event.target.value / 100;
   });
 
   const buttonElement = document.querySelector('button'); //the button element
@@ -44,7 +46,7 @@ function init() {
   var audio = document.querySelector('audio');
   buttonElement.addEventListener('click', event => {
     audio.play();
-    if (partyHornBoolean == true){
+    if (partyHornBoolean == true && currVolume > 0){
        jsConfetti.addConfetti();
     }
   });
